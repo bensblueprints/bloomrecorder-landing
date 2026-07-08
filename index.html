@@ -110,6 +110,20 @@
   h2 { text-align: center; font-size: clamp(28px, 4vw, 42px); font-weight: 780; letter-spacing: -0.02em; margin-top: 12px; }
   .lead { text-align: center; color: var(--muted); max-width: 620px; margin: 16px auto 0; font-size: 17px; }
 
+  /* Demo video + gallery */
+  .video-frame {
+    margin: 46px auto 0; max-width: 880px; border-radius: 18px; padding: 10px;
+    background: linear-gradient(160deg, rgba(168,85,247,0.5), rgba(99,102,241,0.25), transparent);
+    box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+  }
+  .video-frame video { width: 100%; display: block; border-radius: 11px; border: 1px solid var(--border); background: #000; }
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; }
+  .gallery figure { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .gallery img { width: 100%; display: block; border-bottom: 1px solid var(--border); }
+  .gallery figcaption { padding: 16px 18px; font-size: 14px; color: var(--muted); }
+  .gallery figcaption b { color: var(--text); font-weight: 650; }
+  @media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
+
   /* Feature grid */
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
   .card {
@@ -211,6 +225,7 @@
   <div class="wrap nav-inner">
     <a href="#" class="brand"><span class="brand-dot"></span> BloomRecorder</a>
     <div class="nav-links">
+      <a href="#demo">Demo</a>
       <a href="#features">Features</a>
       <a href="#compare">vs Loom</a>
       <a href="#pricing">Pricing</a>
@@ -247,6 +262,30 @@
     </div>
   </div>
 </header>
+
+<section id="demo">
+  <div class="wrap">
+    <p class="eyebrow">See it in action</p>
+    <h2>Watch BloomRecorder work</h2>
+    <p class="lead">Screen, camera, mic — captured locally and ready to share in seconds.</p>
+    <div class="video-frame">
+      <video controls autoplay muted loop playsinline preload="metadata" poster="assets/demo-poster.jpg">
+        <source src="assets/demo.mp4" type="video/mp4" />
+        Your browser doesn't support embedded video.
+      </video>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="assets/screenshot-both.png" alt="BloomRecorder recording screen and camera at the same time, with a live webcam preview" loading="lazy" />
+        <figcaption>Screen <b>and</b> camera at once — split into two files or one picture-in-picture video</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/screenshot.png" alt="Choosing a screen source, microphone, and save folder in BloomRecorder" loading="lazy" />
+        <figcaption>Pick your source, your mic, and your save folder — then hit record</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <section id="features">
   <div class="wrap">
