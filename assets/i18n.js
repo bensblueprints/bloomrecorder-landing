@@ -1,26 +1,26 @@
 (function () {
   var LANGUAGES = [
-    { code: 'en', label: 'English', video: 'assets/hero.mp4' },
-    { code: 'es', label: 'Español', video: 'assets/hero-lang/es.mp4' },
-    { code: 'fr', label: 'Français', video: 'assets/hero-lang/fr.mp4' },
-    { code: 'pt', label: 'Português', video: 'assets/hero-lang/pt.mp4' },
-    { code: 'nl', label: 'Nederlands', video: 'assets/hero-lang/nl.mp4' },
-    { code: 'sv', label: 'Svenska', video: 'assets/hero-lang/sv.mp4' },
-    { code: 'da', label: 'Dansk', video: 'assets/hero-lang/da.mp4' },
-    { code: 'is', label: 'Íslenska', video: 'assets/hero-lang/is.mp4' },
-    { code: 'pl', label: 'Polski', video: 'assets/hero-lang/pl.mp4' },
-    { code: 'cs', label: 'Čeština', video: 'assets/hero-lang/cs.mp4' },
-    { code: 'hu', label: 'Magyar', video: 'assets/hero-lang/hu.mp4' },
-    { code: 'ru', label: 'Русский', video: 'assets/hero-lang/ru.mp4' },
-    { code: 'ga', label: 'Gaeilge', video: 'assets/hero-lang/ga.mp4' },
-    { code: 'vi', label: 'Tiếng Việt', video: 'assets/hero-lang/vi.mp4' },
-    { code: 'th', label: 'ไทย', video: 'assets/hero-lang/th.mp4' },
-    { code: 'ms', label: 'Bahasa Melayu', video: 'assets/hero-lang/ms.mp4' },
-    { code: 'hi', label: 'हिन्दी', video: 'assets/hero-lang/hi.mp4' },
-    { code: 'bn', label: 'বাংলা', video: 'assets/hero-lang/bn.mp4' },
-    { code: 'pa', label: 'ਪੰਜਾਬੀ', video: 'assets/hero-lang/pa.mp4' },
-    { code: 'si', label: 'සිංහල', video: 'assets/hero-lang/si.mp4' },
-    { code: 'zu', label: 'isiZulu', video: 'assets/hero-lang/zu.mp4' }
+    { code: 'en', label: 'English', video: 'assets/hero.mp4?v=2' },
+    { code: 'es', label: 'Español', video: 'assets/hero-lang/es.mp4?v=2' },
+    { code: 'fr', label: 'Français', video: 'assets/hero-lang/fr.mp4?v=2' },
+    { code: 'pt', label: 'Português', video: 'assets/hero-lang/pt.mp4?v=2' },
+    { code: 'nl', label: 'Nederlands', video: 'assets/hero-lang/nl.mp4?v=2' },
+    { code: 'sv', label: 'Svenska', video: 'assets/hero-lang/sv.mp4?v=2' },
+    { code: 'da', label: 'Dansk', video: 'assets/hero-lang/da.mp4?v=2' },
+    { code: 'is', label: 'Íslenska', video: 'assets/hero-lang/is.mp4?v=2' },
+    { code: 'pl', label: 'Polski', video: 'assets/hero-lang/pl.mp4?v=2' },
+    { code: 'cs', label: 'Čeština', video: 'assets/hero-lang/cs.mp4?v=2' },
+    { code: 'hu', label: 'Magyar', video: 'assets/hero-lang/hu.mp4?v=2' },
+    { code: 'ru', label: 'Русский', video: 'assets/hero-lang/ru.mp4?v=2' },
+    { code: 'ga', label: 'Gaeilge', video: 'assets/hero-lang/ga.mp4?v=2' },
+    { code: 'vi', label: 'Tiếng Việt', video: 'assets/hero-lang/vi.mp4?v=2' },
+    { code: 'th', label: 'ไทย', video: 'assets/hero-lang/th.mp4?v=2' },
+    { code: 'ms', label: 'Bahasa Melayu', video: 'assets/hero-lang/ms.mp4?v=2' },
+    { code: 'hi', label: 'हिन्दी', video: 'assets/hero-lang/hi.mp4?v=2' },
+    { code: 'bn', label: 'বাংলা', video: 'assets/hero-lang/bn.mp4?v=2' },
+    { code: 'pa', label: 'ਪੰਜਾਬੀ', video: 'assets/hero-lang/pa.mp4?v=2' },
+    { code: 'si', label: 'සිංහල', video: 'assets/hero-lang/si.mp4?v=2' },
+    { code: 'zu', label: 'isiZulu', video: 'assets/hero-lang/zu.mp4?v=2' }
   ];
 
   var STORAGE_KEY = 'bloomrecorder_lang';
@@ -68,7 +68,7 @@
     var heroVideo = document.getElementById('hero-video');
     if (heroVideo) {
       var source = heroVideo.querySelector('source');
-      var newSrc = lang.video || 'assets/hero.mp4';
+      var newSrc = lang.video || 'assets/hero.mp4?v=2';
       if (source && source.getAttribute('src') !== newSrc) {
         source.setAttribute('src', newSrc);
         heroVideo.load();
