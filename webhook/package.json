@@ -1,0 +1,13 @@
+{
+  "name": "bloomrecorder-webhook",
+  "version": "1.0.0",
+  "description": "Receives Whop purchase webhooks for BloomRecorder.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
