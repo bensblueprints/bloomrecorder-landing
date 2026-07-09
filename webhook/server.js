@@ -13,13 +13,24 @@ if (!WHOP_WEBHOOK_SECRET) {
 // Raw body needed for signature verification — must be the exact bytes Whop signed.
 app.use(express.raw({ type: '*/*', limit: '1mb' }));
 
+// Whop's dashboard has shown secrets as both "whsec_<base64>" (Standard Webhooks
+// convention, per docs.whop.com) and "ws_<hex>" (seen in practice) — decode whichever
+// we were actually given rather than assuming one.
+function decodeSecret(raw) {
+  const stripped = raw.replace(/^(whsec_|ws_)/, '');
+  if (/^[0-9a-f]+$/i.test(stripped) && stripped.length % 2 === 0) {
+    return Buffer.from(stripped, 'hex');
+  }
+  return Buffer.from(stripped, 'base64');
+}
+
 function verify(id, timestamp, rawBody, signatureHeader) {
   if (!WHOP_WEBHOOK_SECRET || !id || !timestamp || !signatureHeader) return false;
 
   const age = Math.abs(Math.floor(Date.now() / 1000) - Number(timestamp));
   if (!Number.isFinite(age) || age > TOLERANCE_SECONDS) return false;
 
-  const secretBytes = Buffer.from(WHOP_WEBHOOK_SECRET.replace(/^whsec_/, ''), 'base64');
+  const secretBytes = decodeSecret(WHOP_WEBHOOK_SECRET);
   const signedContent = `${id}.${timestamp}.${rawBody.toString('utf8')}`;
   const expected = crypto.createHmac('sha256', secretBytes).update(signedContent).digest('base64');
 
