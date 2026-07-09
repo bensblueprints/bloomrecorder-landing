@@ -11,7 +11,7 @@ if (!WHOP_WEBHOOK_SECRET) {
 }
 
 // Raw body needed for signature verification — must be the exact bytes Whop signed.
-app.use('/webhooks/whop', express.raw({ type: '*/*', limit: '1mb' }));
+app.use(express.raw({ type: '*/*', limit: '1mb' }));
 
 function verify(id, timestamp, rawBody, signatureHeader) {
   if (!WHOP_WEBHOOK_SECRET || !id || !timestamp || !signatureHeader) return false;
@@ -36,7 +36,7 @@ function verify(id, timestamp, rawBody, signatureHeader) {
 
 app.get('/health', (_req, res) => res.json({ ok: true }));
 
-app.post('/webhooks/whop', (req, res) => {
+function handleWhopWebhook(req, res) {
   const id = req.header('webhook-id');
   const timestamp = req.header('webhook-timestamp');
   const signature = req.header('webhook-signature');
@@ -61,6 +61,10 @@ app.post('/webhooks/whop', (req, res) => {
   }));
 
   res.status(200).json({ ok: true });
-});
+}
+
+// Accepted at both the root and /webhooks/whop so either URL works in Whop's dashboard.
+app.post('/', handleWhopWebhook);
+app.post('/webhooks/whop', handleWhopWebhook);
 
 app.listen(PORT, () => console.log(`bloomrecorder-webhook listening on ${PORT}`));

@@ -95,7 +95,11 @@
     select.value = initial;
     applyLanguage(initial);
 
-    select.addEventListener('change', function () { applyLanguage(select.value); });
+    var debounceTimer = null;
+    select.addEventListener('change', function () {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function () { applyLanguage(select.value); }, 150);
+    });
   }
 
   if (document.readyState === 'loading') {
