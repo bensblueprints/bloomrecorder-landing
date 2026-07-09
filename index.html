@@ -192,7 +192,14 @@
   .stack { display: flex; flex-direction: column; gap: 10px; flex: 1; }
 
   /* Comparison */
-  .cmp-wrap { margin-top: 48px; overflow-x: auto; }
+  .cmp-wrap { margin-top: 48px; overflow-x: auto; position: relative; }
+  @media (max-width: 560px) {
+    .cmp-wrap::after {
+      content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 36px;
+      background: linear-gradient(to right, transparent, var(--bg) 85%);
+      pointer-events: none;
+    }
+  }
   table { width: 100%; border-collapse: collapse; min-width: 520px; }
   th, td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--border); font-size: 15px; }
   thead th { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
@@ -259,7 +266,15 @@
   @media (max-width: 560px) {
     .grid { grid-template-columns: 1fr; }
     header { padding-top: 44px; }
+    .nav-links .btn { padding: 7px 13px; font-size: 12.5px; }
+    .lang-switch select { padding: 6px 22px 6px 9px; font-size: 11.5px; }
+    .nav-links { gap: 8px; }
   }
+  @media (max-width: 420px) {
+    .nav-inner { height: auto; flex-wrap: wrap; padding: 10px 0; row-gap: 8px; }
+    .nav-links { width: 100%; justify-content: space-between; }
+  }
+
 </style>
 </head>
 <body>
@@ -287,7 +302,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-video">
-        <video id="hero-video" autoplay muted loop playsinline preload="metadata">
+        <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
           <source src="assets/hero.mp4" type="video/mp4" />
         </video>
       </div>
