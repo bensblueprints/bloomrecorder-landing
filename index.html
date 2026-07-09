@@ -11,19 +11,20 @@
 <meta property="og:url" content="https://bloomrecorder.com" />
 <meta property="og:image" content="https://bloomrecorder.com/assets/screenshot.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='30%25' cy='30%25'%3E%3Cstop offset='0%25' stop-color='%23f9a8d4'/%3E%3Cstop offset='55%25' stop-color='%23a855f7'/%3E%3Cstop offset='100%25' stop-color='%236366f1'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='42' fill='url(%23g)'/%3E%3C/svg%3E" />
+<link rel="icon" href="assets/favicon-64.png" type="image/png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <style>
   :root {
-    --bg: #08090f;
-    --bg-2: #0e1018;
-    --bg-3: #151824;
-    --border: #232838;
-    --text: #eef1f8;
-    --muted: #99a1b5;
-    --bloom-1: #f9a8d4;
-    --bloom-2: #a855f7;
-    --bloom-3: #6366f1;
-    --accent: #22c55e;
+    --bg: #0a0f0d;
+    --bg-2: #0e1613;
+    --bg-3: #16211c;
+    --border: #22322a;
+    --text: #f3f1e7;
+    --muted: #9db3ac;
+    --bloom-1: #fde68a;
+    --bloom-2: #f5b400;
+    --bloom-3: #0d7377;
+    --accent: #2dd4bf;
     --radius: 16px;
     --maxw: 1120px;
   }
@@ -57,9 +58,8 @@
   .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; font-size: 17px; }
   .brand-dot {
-    width: 26px; height: 26px; border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, var(--bloom-1), var(--bloom-2) 55%, var(--bloom-3));
-    box-shadow: 0 0 16px rgba(168,85,247,0.6);
+    width: 26px; height: 26px; border-radius: 8px; display: block;
+    box-shadow: 0 0 16px rgba(13,115,119,0.55);
   }
   .nav-links { display: flex; align-items: center; gap: 22px; }
   .nav-links a { color: var(--muted); font-size: 14px; transition: color .15s; }
@@ -71,7 +71,7 @@
   }
   .btn-primary {
     color: #fff; background: linear-gradient(100deg, var(--bloom-2), var(--bloom-3));
-    box-shadow: 0 8px 30px rgba(124,90,246,0.4);
+    box-shadow: 0 8px 30px rgba(245,180,0,0.35);
   }
   .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.08); }
   .btn-ghost { color: var(--text); background: var(--bg-3); border: 1px solid var(--border); }
@@ -101,7 +101,7 @@
   }
   .hero-video {
     border-radius: 18px; padding: 8px; order: 1;
-    background: linear-gradient(160deg, rgba(168,85,247,0.5), rgba(99,102,241,0.25), transparent);
+    background: linear-gradient(160deg, rgba(245,180,0,0.5), rgba(13,115,119,0.35), transparent);
     box-shadow: 0 40px 120px rgba(0,0,0,0.6);
   }
   .hero-video video { width: 100%; display: block; border-radius: 12px; border: 1px solid var(--border); background: #000; }
@@ -128,7 +128,7 @@
   /* App shot */
   .shot-frame {
     position: relative; z-index: 1; margin: 54px auto 0; max-width: 980px;
-    border-radius: 18px; padding: 10px; background: linear-gradient(160deg, rgba(168,85,247,0.5), rgba(99,102,241,0.25), transparent);
+    border-radius: 18px; padding: 10px; background: linear-gradient(160deg, rgba(245,180,0,0.5), rgba(13,115,119,0.35), transparent);
     box-shadow: 0 40px 120px rgba(0,0,0,0.6);
   }
   .shot-frame img { width: 100%; display: block; border-radius: 11px; border: 1px solid var(--border); }
@@ -147,7 +147,7 @@
   /* Demo video + gallery */
   .video-frame {
     margin: 46px auto 0; max-width: 880px; border-radius: 18px; padding: 10px;
-    background: linear-gradient(160deg, rgba(168,85,247,0.5), rgba(99,102,241,0.25), transparent);
+    background: linear-gradient(160deg, rgba(245,180,0,0.5), rgba(13,115,119,0.35), transparent);
     box-shadow: 0 40px 120px rgba(0,0,0,0.6);
   }
   .video-frame video { width: 100%; display: block; border-radius: 11px; border: 1px solid var(--border); background: #000; }
@@ -167,7 +167,7 @@
   .card:hover { transform: translateY(-4px); border-color: #38304f; }
   .ico {
     width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(150deg, rgba(168,85,247,0.22), rgba(99,102,241,0.14)); margin-bottom: 16px;
+    background: linear-gradient(150deg, rgba(245,180,0,0.22), rgba(13,115,119,0.18)); margin-bottom: 16px;
   }
   .ico svg { width: 22px; height: 22px; color: var(--bloom-1); }
   .card h3 { font-size: 17px; font-weight: 680; margin-bottom: 7px; }
@@ -186,7 +186,7 @@
   .diagram-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
   .diagram-row:last-child { margin-bottom: 0; }
   .chip { flex: 1; background: var(--bg-3); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; font-size: 13.5px; }
-  .chip.src { border-color: rgba(168,85,247,0.4); }
+  .chip.src { border-color: rgba(245,180,0,0.4); }
   .chip.out { border-color: rgba(34,197,94,0.4); }
   .arrow { color: var(--muted); font-size: 20px; }
   .stack { display: flex; flex-direction: column; gap: 10px; flex: 1; }
@@ -210,7 +210,7 @@
   }
   .price-card::before {
     content: ""; position: absolute; inset: 0; padding: 1px; border-radius: 22px;
-    background: linear-gradient(160deg, rgba(168,85,247,0.6), transparent 60%);
+    background: linear-gradient(160deg, rgba(245,180,0,0.55), transparent 60%);
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
   }
@@ -239,6 +239,18 @@
   footer { border-top: 1px solid var(--border); padding: 36px 0; color: var(--muted); font-size: 13.5px; position: relative; z-index: 1; }
   .foot-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: center; }
 
+  /* Scroll-grow sunflower flourish, shown above section headings */
+  .sunflower-grow {
+    display: flex; justify-content: center; margin-bottom: 6px;
+    opacity: 0; transform: scale(0.35) rotate(-12deg);
+    transition: transform 700ms cubic-bezier(.22,1,.36,1), opacity 700ms ease-out;
+  }
+  .sunflower-grow img { width: 56px; height: 56px; display: block; filter: drop-shadow(0 6px 20px rgba(13,115,119,0.45)); }
+  .sunflower-grow.in-view { opacity: 1; transform: scale(1) rotate(0deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .sunflower-grow { transition: none; opacity: 1; transform: none; }
+  }
+
   @media (max-width: 860px) {
     .grid { grid-template-columns: 1fr 1fr; }
     .spot { grid-template-columns: 1fr; gap: 30px; }
@@ -257,7 +269,7 @@
 
 <nav>
   <div class="wrap nav-inner">
-    <a href="#" class="brand"><span class="brand-dot"></span> BloomRecorder</a>
+    <a href="#" class="brand"><img class="brand-dot" src="assets/logo-96.png" alt="BloomRecorder" /> BloomRecorder</a>
     <div class="nav-links">
       <a href="#demo" data-i18n="nav.demo">Demo</a>
       <a href="#features" data-i18n="nav.features">Features</a>
@@ -311,6 +323,7 @@
 
 <section id="demo">
   <div class="wrap">
+    <div class="sunflower-grow"><img src="assets/logo-96.png" alt="" /></div>
     <p class="eyebrow" data-i18n="demo.eyebrow">See it in action</p>
     <h2 data-i18n="demo.h2">Watch BloomRecorder work</h2>
     <p class="lead" data-i18n="demo.lead">Screen, camera, mic — captured locally and ready to share in seconds.</p>
@@ -335,6 +348,7 @@
 
 <section id="features">
   <div class="wrap">
+    <div class="sunflower-grow"><img src="assets/logo-96.png" alt="" /></div>
     <p class="eyebrow" data-i18n="features.eyebrow">Everything you actually use</p>
     <h2 data-i18n="features.h2">One recorder. Every angle.</h2>
     <p class="lead" data-i18n="features.lead">Screen, camera, or both at once — with the audio and the output format you need, saved wherever you want.</p>
@@ -376,6 +390,7 @@
 
 <section id="both" style="padding-top:0;">
   <div class="wrap">
+    <div class="sunflower-grow"><img src="assets/logo-96.png" alt="" /></div>
     <p class="eyebrow" data-i18n="spot.eyebrow">Screen + Camera</p>
     <h2 data-i18n="spot.h2">Talking-head or clean capture — your call.</h2>
     <div class="spot">
@@ -408,6 +423,7 @@
 
 <section id="compare">
   <div class="wrap">
+    <div class="sunflower-grow"><img src="assets/logo-96.png" alt="" /></div>
     <p class="eyebrow" data-i18n="compare.eyebrow">The math</p>
     <h2 data-i18n="compare.h2">Buy it once. Not every month.</h2>
     <div class="cmp-wrap">
@@ -432,6 +448,7 @@
 
 <section id="pricing">
   <div class="wrap">
+    <div class="sunflower-grow"><img src="assets/logo-96.png" alt="" /></div>
     <p class="eyebrow" data-i18n="pricing.eyebrow">One price</p>
     <h2 data-i18n="pricing.h2">Own your recorder.</h2>
     <p class="lead" data-i18n="pricing.lead">A single payment. Free updates forever. No card on file, no renewal, no surprise.</p>
@@ -454,6 +471,7 @@
 
 <section id="faq" style="padding-top:0;">
   <div class="wrap">
+    <div class="sunflower-grow"><img src="assets/logo-96.png" alt="" /></div>
     <p class="eyebrow" data-i18n="faq.eyebrow">Questions</p>
     <h2 data-i18n="faq.h2">Good to know</h2>
     <div class="faq">
@@ -468,6 +486,7 @@
 
 <section class="final">
   <div class="wrap">
+    <div class="sunflower-grow"><img src="assets/logo-96.png" alt="" /></div>
     <h2 data-i18n="final.h2">Stop renting your screen recorder.</h2>
     <p class="lead" data-i18n="final.lead">Record your screen and camera, keep the file, and never see a monthly bill again.</p>
     <a href="#pricing" class="btn btn-primary" data-i18n="final.cta">Get BloomRecorder — $19 launch</a>
@@ -476,12 +495,13 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <span class="brand"><span class="brand-dot"></span> BloomRecorder</span>
+    <span class="brand"><img class="brand-dot" src="assets/logo-96.png" alt="BloomRecorder" /> BloomRecorder</span>
     <span data-i18n="footer.tagline">© 2026 BloomRecorder · Pay once. Own it forever.</span>
   </div>
 </footer>
 
 <script src="assets/translations.js"></script>
 <script src="assets/i18n.js"></script>
+<script src="assets/scroll-anim.js"></script>
 </body>
 </html>
