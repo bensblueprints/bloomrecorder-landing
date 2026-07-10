@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You — BloomRecorder</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/favicon-64.png" type="image/png" />
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1543230227264583');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1543230227264583&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+  // BloomRecorder's Whop checkout price is $19 (launch price) at time of writing.
+  // If Whop's post-purchase redirect is ever configured to append a "value" query
+  // param (e.g. ?value=19.00), prefer that so this stays correct if pricing changes.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var value = parseFloat(params.get('value'));
+    if (!value || isNaN(value)) value = 19.00;
+    var currency = params.get('currency') || 'USD';
+    fbq('track', 'Purchase', { value: value, currency: currency });
+  })();
+</script>
+<style>
+  :root {
+    --bg: #0a0f0d; --text: #f3f1e7; --muted: #9db3ac;
+    --bloom-1: #fde68a; --bloom-2: #f5b400; --bloom-3: #0d7377;
+    --accent: #2dd4bf; --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 24px;
+  }
+  .card { max-width: 480px; }
+  .bloom-text {
+    background: linear-gradient(100deg, var(--bloom-1), var(--bloom-2) 45%, var(--bloom-3));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  h1 { font-size: 32px; margin-bottom: 16px; }
+  p { color: var(--muted); font-size: 16px; line-height: 1.6; margin-bottom: 12px; }
+  a.btn {
+    display: inline-block; margin-top: 20px; padding: 14px 28px; border-radius: 999px;
+    background: var(--bloom-2); color: #10120a; font-weight: 700; text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1 class="bloom-text">Thanks for grabbing BloomRecorder!</h1>
+    <p>Check your email for your download link and license.</p>
+    <p>If you don't see it within a few minutes, check spam or reach out and we'll sort it out.</p>
+    <a class="btn" href="https://bloomrecorder.com/">Back to BloomRecorder</a>
+  </div>
+</body>
+</html>
