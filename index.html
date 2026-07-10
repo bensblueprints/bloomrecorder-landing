@@ -49,6 +49,20 @@
   .glow.b { width: 460px; height: 460px; background: var(--bloom-3); top: 120px; right: -160px; opacity: 0.25; }
   .glow.c { width: 420px; height: 420px; background: var(--bloom-1); top: 900px; left: 40%; opacity: 0.14; }
 
+  /* Sale banner */
+  .sale-banner {
+    position: relative; z-index: 60; display: flex; align-items: center; justify-content: center;
+    gap: 12px; flex-wrap: wrap; text-align: center;
+    padding: 10px 20px; font-size: 14px; font-weight: 650; color: #10120a;
+    background: linear-gradient(100deg, var(--bloom-1), var(--bloom-2) 60%, var(--bloom-3));
+  }
+  .sale-banner-text strong { font-weight: 800; }
+  .sale-banner-timer {
+    font-variant-numeric: tabular-nums; font-weight: 800; letter-spacing: 0.02em;
+    background: rgba(10,15,13,0.18); padding: 3px 10px; border-radius: 999px;
+  }
+  @media (max-width: 560px) { .sale-banner { font-size: 12.5px; padding: 8px 14px; } }
+
   /* Nav */
   nav {
     position: sticky; top: 0; z-index: 50;
@@ -151,6 +165,24 @@
     box-shadow: 0 40px 120px rgba(0,0,0,0.6);
   }
   .video-frame video { width: 100%; display: block; border-radius: 11px; border: 1px solid var(--border); background: #000; }
+  .click-to-play { position: relative; }
+  .play-overlay {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(10,15,13,0.28); border: none; border-radius: 11px;
+    cursor: pointer; padding: 0; transition: background .15s;
+  }
+  .play-overlay:hover { background: rgba(10,15,13,0.42); }
+  .play-overlay-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 74px; height: 74px; border-radius: 50%; color: #fff;
+    background: linear-gradient(100deg, var(--bloom-2), var(--bloom-3));
+    box-shadow: 0 8px 30px rgba(245,180,0,0.45);
+    transition: transform .15s, filter .15s;
+  }
+  .play-overlay-btn svg { margin-left: 4px; }
+  .play-overlay:hover .play-overlay-btn { transform: scale(1.06); filter: brightness(1.08); }
+  .click-to-play.is-playing .play-overlay { display: none; }
   .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; }
   .gallery figure { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .gallery img { width: 100%; display: block; border-bottom: 1px solid var(--border); }
@@ -282,6 +314,11 @@
 <div class="glow b"></div>
 <div class="glow c"></div>
 
+<div class="sale-banner" id="sale-banner">
+  <span class="sale-banner-text">🔥 Lifetime Access — <strong>$20 Sale</strong> Ends at Midnight</span>
+  <span class="sale-banner-timer" id="sale-countdown">00:00:00</span>
+</div>
+
 <nav>
   <div class="wrap nav-inner">
     <a href="#" class="brand"><img class="brand-dot" src="assets/logo-96.png" alt="BloomRecorder" /> BloomRecorder</a>
@@ -343,10 +380,17 @@
     <h2 data-i18n="demo.h2">Watch BloomRecorder work</h2>
     <p class="lead" data-i18n="demo.lead">Screen, camera, mic — captured locally and ready to share in seconds.</p>
     <div class="video-frame">
-      <video controls playsinline preload="metadata" poster="assets/demo-poster.jpg">
-        <source src="assets/demo.mp4" type="video/mp4" />
-        Your browser doesn't support embedded video.
-      </video>
+      <div class="click-to-play" id="demo-click-to-play">
+        <video id="demo-video" controls playsinline preload="metadata" poster="assets/demo-poster.jpg">
+          <source src="assets/demo.mp4" type="video/mp4" />
+          Your browser doesn't support embedded video.
+        </video>
+        <button type="button" class="play-overlay" id="demo-play-btn" aria-label="Play demo video">
+          <span class="play-overlay-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+      </div>
     </div>
     <div class="gallery">
       <figure>
@@ -518,5 +562,40 @@
 <script src="assets/translations.js"></script>
 <script src="assets/i18n.js"></script>
 <script src="assets/scroll-anim.js"></script>
+<script>
+  // Click-to-play demo video (with sound) — poster + play button until clicked.
+  (function () {
+    var wrap = document.getElementById('demo-click-to-play');
+    var video = document.getElementById('demo-video');
+    var playBtn = document.getElementById('demo-play-btn');
+    if (!wrap || !video || !playBtn) return;
+    playBtn.addEventListener('click', function () {
+      video.muted = false;
+      wrap.classList.add('is-playing');
+      video.play();
+    });
+  })();
+
+  // Lifetime sale countdown — ends at each visitor's own local midnight.
+  (function () {
+    var el = document.getElementById('sale-countdown');
+    if (!el) return;
+    function tick() {
+      var now = new Date();
+      var nextMidnight = new Date(now);
+      nextMidnight.setDate(now.getDate() + 1);
+      nextMidnight.setHours(0, 0, 0, 0);
+      var diff = Math.max(0, nextMidnight.getTime() - now.getTime());
+      var totalSeconds = Math.floor(diff / 1000);
+      var h = Math.floor(totalSeconds / 3600);
+      var m = Math.floor((totalSeconds % 3600) / 60);
+      var s = totalSeconds % 60;
+      function pad(n) { return String(n).padStart(2, '0'); }
+      el.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
 </body>
 </html>
