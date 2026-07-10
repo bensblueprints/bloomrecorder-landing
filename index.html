@@ -356,9 +356,16 @@ src="https://www.facebook.com/tr?id=1543230227264583&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-video">
-        <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
-          <source src="assets/hero.mp4?v=2" type="video/mp4" />
-        </video>
+        <div class="click-to-play" id="hero-click-to-play">
+          <video id="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+            <source src="assets/hero.mp4?v=2" type="video/mp4" />
+          </video>
+          <button type="button" class="play-overlay" id="hero-play-btn" aria-label="Play video">
+            <span class="play-overlay-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+        </div>
       </div>
       <div class="hero-copy">
         <span class="pill"><span class="dot"></span> <span data-i18n="hero.pill">100% local · your files never leave your machine</span></span>
@@ -585,6 +592,19 @@ src="https://www.facebook.com/tr?id=1543230227264583&ev=PageView&noscript=1"
     var wrap = document.getElementById('demo-click-to-play');
     var video = document.getElementById('demo-video');
     var playBtn = document.getElementById('demo-play-btn');
+    if (!wrap || !video || !playBtn) return;
+    playBtn.addEventListener('click', function () {
+      video.muted = false;
+      wrap.classList.add('is-playing');
+      video.play();
+    });
+  })();
+
+  // Click-to-play hero video (vertical) — paused on load, plays with sound once clicked.
+  (function () {
+    var wrap = document.getElementById('hero-click-to-play');
+    var video = document.getElementById('hero-video');
+    var playBtn = document.getElementById('hero-play-btn');
     if (!wrap || !video || !playBtn) return;
     playBtn.addEventListener('click', function () {
       video.muted = false;
