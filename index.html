@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BloomRecorder — Record your screen &amp; camera. Own the file.</title>
-<meta name="description" content="BloomRecorder is the pay-once Loom replacement. Record your screen, camera, or both — with mic and system audio — saved 100% locally. No subscription, no cloud, no watermark." />
+<meta name="description" content="BloomRecorder is the pay-once Loom replacement. Record your screen, camera, or both, go live on Twitch/RTMP, then edit with local AI — captions, silence removal, Descript-style text editing, and auto-generated Reels. 100% local, no subscription, no cloud." />
 <meta property="og:title" content="BloomRecorder — Record your screen & camera. Own the file." />
-<meta property="og:description" content="The pay-once screen + camera recorder. 100% local. No subscription, no watermark." />
+<meta property="og:description" content="The pay-once screen + camera recorder — with a local AI editor: captions, silence removal, text-based editing, and auto-Reels. No subscription, no cloud." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://bloomrecorder.com" />
 <meta property="og:image" content="https://bloomrecorder.com/assets/screenshot.png" />
@@ -160,6 +160,7 @@
 
   /* Feature grid */
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
   .card {
     background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius);
     padding: 26px 24px; transition: transform .18s, border-color .18s;
@@ -288,6 +289,7 @@
     <div class="nav-links">
       <a href="#demo" data-i18n="nav.demo">Demo</a>
       <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#ai-editor" data-i18n="nav.aiEditor">AI Editor</a>
       <a href="#compare" data-i18n="nav.compare">vs Loom</a>
       <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
       <span class="lang-switch">
@@ -399,6 +401,53 @@
         <h3 data-i18n="features.cards.5.title">100% local &amp; private</h3>
         <p data-i18n="features.cards.5.desc">Zero telemetry, zero network calls, zero accounts. Your recordings live on your machine — nowhere else.</p>
       </div>
+      <div class="card">
+        <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></div>
+        <h3 data-i18n="features.cards.6.title">Go Live</h3>
+        <p data-i18n="features.cards.6.desc">Stream your screen and camera straight to Twitch or any custom RTMP endpoint — while it saves a local copy at the same time.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="18" rx="3"/><path d="M11 18h2"/></svg></div>
+        <h3 data-i18n="features.cards.7.title">Build Short (9:16)</h3>
+        <p data-i18n="features.cards.7.desc">Reframe any recording for Reels, Shorts, or TikTok. A "show full screen" toggle letterboxes instead of cropping, so nothing gets cut off.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></div>
+        <h3 data-i18n="features.cards.8.title">Pause, rename, organize</h3>
+        <p data-i18n="features.cards.8.desc">Pause and resume mid-recording, rename clips, sort and filter your library, and drag-select to batch-delete when it's time to clean up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ai-editor">
+  <div class="wrap">
+    <div class="sunflower-grow"><img src="assets/logo-96.png" alt="" /></div>
+    <p class="eyebrow" data-i18n="aiEditor.eyebrow">Fully local AI — no cloud, no API keys</p>
+    <h2 data-i18n="aiEditor.h2">A real editor, not just a recorder.</h2>
+    <p class="lead" data-i18n="aiEditor.lead">Transcription, captions, silence removal, and viral-clip detection — all running on-device. Nothing uploaded, nothing subscribed to, nothing sent anywhere.</p>
+
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 8h10M7 12h6M4 4h16v13H8l-4 4z"/></svg></div>
+        <h3 data-i18n="aiEditor.cards.0.title">Auto captions</h3>
+        <p data-i18n="aiEditor.cards.0.desc">Transcribes locally and burns in captions — 4 styles, word-by-word or line-by-line timing, adjustable size, and drag the caption anywhere on the frame.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="18" rx="3"/><circle cx="12" cy="8" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+        <h3 data-i18n="aiEditor.cards.1.title">Make Reels</h3>
+        <p data-i18n="aiEditor.cards.1.desc">A local heuristic scans your transcript for hook words, emphasis, and pacing to find and cut standout vertical clips automatically.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18V6l8 6-8 6z"/></svg></div>
+        <h3 data-i18n="aiEditor.cards.2.title">Remove Silences</h3>
+        <p data-i18n="aiEditor.cards.2.desc">Detects every quiet gap, lets you review and trim each one — with undo — then removes them all in a single clean pass.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/></svg></div>
+        <h3 data-i18n="aiEditor.cards.3.title">Edit by editing text</h3>
+        <p data-i18n="aiEditor.cards.3.desc">The Descript move — delete words or pauses right from the transcript and the video cuts itself. Shift-click for ranges, full undo throughout.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -455,6 +504,8 @@
           <tr><td data-i18n="compare.rows.5.label">Works offline</td><td class="us"><span class="tick">✓</span></td><td class="no" data-i18n="compare.rows.5.them">No</td></tr>
           <tr><td data-i18n="compare.rows.6.label">Account required</td><td class="us" data-i18n="compare.rows.6.us">No</td><td class="no" data-i18n="compare.rows.6.them">Yes</td></tr>
           <tr><td data-i18n="compare.rows.7.label">MP4 + GIF export</td><td class="us" data-i18n-html="compare.rows.7.us"><span class="tick">✓</span> built in</td><td class="no" data-i18n="compare.rows.7.them">GIF gated by plan</td></tr>
+          <tr><td data-i18n="compare.rows.8.label">Captions &amp; auto-editing</td><td class="us" data-i18n-html="compare.rows.8.us"><span class="tick">✓</span> local AI, built in</td><td class="no" data-i18n="compare.rows.8.them">Paid AI add-on, cloud-based</td></tr>
+          <tr><td data-i18n="compare.rows.9.label">Live streaming</td><td class="us" data-i18n-html="compare.rows.9.us"><span class="tick">✓</span> Twitch / RTMP</td><td class="no" data-i18n="compare.rows.9.them">Not supported</td></tr>
         </tbody>
       </table>
     </div>
@@ -476,7 +527,8 @@
         <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="pricing.list.1">Screen, camera &amp; both — split or PiP</span></li>
         <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="pricing.list.2">Mic + camera + folder selection</span></li>
         <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="pricing.list.3">MP4 &amp; GIF export with trim</span></li>
-        <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="pricing.list.4">Free updates, forever</span></li>
+        <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="pricing.list.4">Local AI captions, silence removal &amp; text-editing</span></li>
+        <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="pricing.list.5">Free updates, forever</span></li>
       </ul>
       <a href="https://whop.com/checkout/plan_Ma48eglvyofUF/" class="btn btn-primary" id="buy-btn" data-i18n="pricing.buy">Get BloomRecorder</a>
       <p class="micro" data-i18n="pricing.micro">Secure checkout via Whop · instant download</p>
@@ -495,6 +547,7 @@
       <details><summary data-i18n="faq.items.2.q">Can I record my screen and webcam at the same time?</summary><p data-i18n-html="faq.items.2.a">Yes. Choose &ldquo;Screen + Camera.&rdquo; Then either save them as two separate files (each with the full audio) or as a single combined picture-in-picture video.</p></details>
       <details><summary data-i18n="faq.items.3.q">Does it capture audio?</summary><p data-i18n="faq.items.3.a">Both your microphone and your computer's system audio, mixed cleanly — and included in every file it saves.</p></details>
       <details><summary data-i18n="faq.items.4.q">Which platforms are supported?</summary><p data-i18n="faq.items.4.a">Windows and macOS, with native installers for each.</p></details>
+      <details><summary data-i18n="faq.items.5.q">Does it have captions and editing tools?</summary><p data-i18n="faq.items.5.a">Yes — auto captions, a silence remover, a Descript-style text editor (delete words, the video cuts itself), and an automatic viral-clip finder. All of it runs locally via on-device AI. No cloud, no API keys, no extra subscription.</p></details>
     </div>
   </div>
 </section>

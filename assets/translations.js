@@ -1,6 +1,6 @@
 window.BLOOM_TRANSLATIONS = {
   en: {
-    nav: { demo: "Demo", features: "Features", compare: "vs Loom", pricing: "Pricing", cta: "Get it — $29" },
+    nav: { demo: "Demo", features: "Features", aiEditor: "AI Editor", compare: "vs Loom", pricing: "Pricing", cta: "Get it — $29" },
     hero: {
       pill: "100% local · your files never leave your machine",
       h1: "Record your screen & camera.<br /><span class=\"bloom-text\">Own the file.</span>",
@@ -28,7 +28,21 @@ window.BLOOM_TRANSLATIONS = {
         { title: "Pick your mic & camera", desc: "Choose exactly which microphone and which camera to record. System audio mixes in automatically." },
         { title: "Choose your save folder", desc: "Point BloomRecorder at any folder on your disk. Your choice sticks — and every file lands there instantly." },
         { title: "MP4 & GIF export", desc: "Export H.264 MP4 that plays everywhere, or a crisp two-pass GIF. Trim the start and end before you export." },
-        { title: "100% local & private", desc: "Zero telemetry, zero network calls, zero accounts. Your recordings live on your machine — nowhere else." }
+        { title: "100% local & private", desc: "Zero telemetry, zero network calls, zero accounts. Your recordings live on your machine — nowhere else." },
+        { title: "Go Live", desc: "Stream your screen and camera straight to Twitch or any custom RTMP endpoint — while it saves a local copy at the same time." },
+        { title: "Build Short (9:16)", desc: "Reframe any recording for Reels, Shorts, or TikTok. A \"show full screen\" toggle letterboxes instead of cropping, so nothing gets cut off." },
+        { title: "Pause, rename, organize", desc: "Pause and resume mid-recording, rename clips, sort and filter your library, and drag-select to batch-delete when it's time to clean up." }
+      ]
+    },
+    aiEditor: {
+      eyebrow: "Fully local AI — no cloud, no API keys",
+      h2: "A real editor, not just a recorder.",
+      lead: "Transcription, captions, silence removal, and viral-clip detection — all running on-device. Nothing uploaded, nothing subscribed to, nothing sent anywhere.",
+      cards: [
+        { title: "Auto captions", desc: "Transcribes locally and burns in captions — 4 styles, word-by-word or line-by-line timing, adjustable size, and drag the caption anywhere on the frame." },
+        { title: "Make Reels", desc: "A local heuristic scans your transcript for hook words, emphasis, and pacing to find and cut standout vertical clips automatically." },
+        { title: "Remove Silences", desc: "Detects every quiet gap, lets you review and trim each one — with undo — then removes them all in a single clean pass." },
+        { title: "Edit by editing text", desc: "The Descript move — delete words or pauses right from the transcript and the video cuts itself. Shift-click for ranges, full undo throughout." }
       ]
     },
     spot: {
@@ -50,7 +64,9 @@ window.BLOOM_TRANSLATIONS = {
         { label: "Watermark", us: "Never", them: "On free tier" },
         { label: "Works offline", us: "✓", them: "No" },
         { label: "Account required", us: "No", them: "Yes" },
-        { label: "MP4 + GIF export", us: "<span class=\"tick\">✓</span> built in", them: "GIF gated by plan" }
+        { label: "MP4 + GIF export", us: "<span class=\"tick\">✓</span> built in", them: "GIF gated by plan" },
+        { label: "Captions & auto-editing", us: "<span class=\"tick\">✓</span> local AI, built in", them: "Paid AI add-on, cloud-based" },
+        { label: "Live streaming", us: "<span class=\"tick\">✓</span> Twitch / RTMP", them: "Not supported" }
       ]
     },
     pricing: {
@@ -59,7 +75,7 @@ window.BLOOM_TRANSLATIONS = {
       lead: "A single payment. Free updates forever. No card on file, no renewal, no surprise.",
       once: "Pay once · own forever",
       launch: " launch",
-      list: ["Windows & macOS installers", "Screen, camera & both — split or PiP", "Mic + camera + folder selection", "MP4 & GIF export with trim", "Free updates, forever"],
+      list: ["Windows & macOS installers", "Screen, camera & both — split or PiP", "Mic + camera + folder selection", "MP4 & GIF export with trim", "Local AI captions, silence removal & text-editing", "Free updates, forever"],
       buy: "Get BloomRecorder",
       micro: "Secure checkout via Whop · instant download"
     },
@@ -71,7 +87,8 @@ window.BLOOM_TRANSLATIONS = {
         { q: "Where do my recordings go?", a: "Straight to a folder on your own computer that you choose. BloomRecorder makes zero network calls — nothing is uploaded, ever." },
         { q: "Can I record my screen and webcam at the same time?", a: "Yes. Choose “Screen + Camera.” Then either save them as two separate files (each with the full audio) or as a single combined picture-in-picture video." },
         { q: "Does it capture audio?", a: "Both your microphone and your computer's system audio, mixed cleanly — and included in every file it saves." },
-        { q: "Which platforms are supported?", a: "Windows and macOS, with native installers for each." }
+        { q: "Which platforms are supported?", a: "Windows and macOS, with native installers for each." },
+        { q: "Does it have captions and editing tools?", a: "Yes — auto captions, a silence remover, a Descript-style text editor (delete words, the video cuts itself), and an automatic viral-clip finder. All of it runs locally via on-device AI. No cloud, no API keys, no extra subscription." }
       ]
     },
     final: {
