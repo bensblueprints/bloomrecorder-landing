@@ -77,7 +77,8 @@ window.BLOOM_TRANSLATIONS = {
       launch: " launch",
       list: ["Windows & macOS installers", "Screen, camera & both — split or PiP", "Mic + camera + folder selection", "MP4 & GIF export with trim", "Local AI captions, silence removal & text-editing", "Free updates, forever"],
       buy: "Get BloomRecorder",
-      micro: "Secure checkout via Whop · instant download"
+      micro: "Secure checkout via Whop · instant download",
+      guarantee: "30-day money-back guarantee — email <a href=\"mailto:support@onetimesuite.com\" style=\"text-decoration:underline\">support@onetimesuite.com</a> and we'll refund you, no questions asked."
     },
     faq: {
       eyebrow: "Questions",
@@ -88,7 +89,8 @@ window.BLOOM_TRANSLATIONS = {
         { q: "Can I record my screen and webcam at the same time?", a: "Yes. Choose “Screen + Camera.” Then either save them as two separate files (each with the full audio) or as a single combined picture-in-picture video." },
         { q: "Does it capture audio?", a: "Both your microphone and your computer's system audio, mixed cleanly — and included in every file it saves." },
         { q: "Which platforms are supported?", a: "Windows and macOS, with native installers for each." },
-        { q: "Does it have captions and editing tools?", a: "Yes — auto captions, a silence remover, a Descript-style text editor (delete words, the video cuts itself), and an automatic viral-clip finder. All of it runs locally via on-device AI. No cloud, no API keys, no extra subscription." }
+        { q: "Does it have captions and editing tools?", a: "Yes — auto captions, a silence remover, a Descript-style text editor (delete words, the video cuts itself), and an automatic viral-clip finder. All of it runs locally via on-device AI. No cloud, no API keys, no extra subscription." },
+        { q: "What if I don't like it?", a: "Email <a href=\"mailto:support@onetimesuite.com\" style=\"text-decoration:underline\">support@onetimesuite.com</a> within 30 days of purchase and we'll refund you — no questions asked." }
       ]
     },
     final: {
